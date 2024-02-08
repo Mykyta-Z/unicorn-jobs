@@ -2,19 +2,24 @@
 
 html {
   box-sizing: border-box;
+  background: $color-black-base;
 }
 
 body {
   font: 100% $font-primary;
   min-height: 100vh;
   color: $color-grey-base;
-  background: $color-grey-lighter;
   line-height: 1.2;
   font-size: $font-size-medium;
   margin: 0;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(
+    207.4deg,
+    $color-bg-primary 14.05%,
+    rgba($color-bg-primary, 0) 82.93%
+  );
 }
 
 * {

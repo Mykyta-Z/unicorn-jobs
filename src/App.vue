@@ -1,7 +1,12 @@
-<script setup></script>
+<script setup>
+import TheHeader from './components/TheHeader.vue'
+</script>
 
 <template>
-  <div>Hello unicorn-jobs!</div>
+  <TheHeader />
+  <main>
+    <div>Hello unicorn-jobs!</div>
+  </main>
 </template>
 
 <style lang="scss">
