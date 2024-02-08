@@ -1,13 +1,9 @@
-<script setup>
-
-</script>
+<script setup></script>
 
 <template>
-<div>
-  Hello unicorn-jobs!
-</div>
+  <div>Hello unicorn-jobs!</div>
 </template>
 
-<style scoped lang="scss">
-
+<style lang="scss">
+@import '@/assets/scss/main.scss';
 </style>

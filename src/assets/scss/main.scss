@@ -1,0 +1,27 @@
+@import 'fonts';
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  font: 100% $font-primary;
+  min-height: 100vh;
+  color: $color-grey-base;
+  background: $color-grey-lighter;
+  line-height: 1.2;
+  font-size: $font-size-medium;
+  margin: 0;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: inherit;
+
+  &:after,
+  &:before {
+    box-sizing: inherit;
+  }
+}
