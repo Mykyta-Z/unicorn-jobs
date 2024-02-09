@@ -80,6 +80,9 @@ export const useJobsStore = defineStore('jobs', {
   getters: {
     getJobData: (state) => {
       return (jobId) => state.list.find((job) => job.id === jobId)
+    },
+    getFavoritesCount: (state) => {
+      return state.list.filter((job) => job.favorite).length
     }
   }
 })

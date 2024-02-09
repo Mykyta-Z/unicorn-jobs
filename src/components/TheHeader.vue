@@ -1,11 +1,14 @@
 <script setup>
+import { useJobsStore } from '@/stores/jobs'
 import BaseButton from './BaseButton.vue'
 import BaseIcon from './BaseIcon.vue'
+
+const jobStore = useJobsStore()
 </script>
 
 <template>
   <header class="header">
-    <div class="header-title">Unicorn Jobs - 2 Saved</div>
+    <div class="header-title">Unicorn Jobs - {{ jobStore.getFavoritesCount }} Saved</div>
     <BaseButton class="header-menu">
       <BaseIcon icon="menu" size="m" color="yellow-base" />
     </BaseButton>
