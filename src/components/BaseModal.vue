@@ -24,7 +24,6 @@ const modalStore = useModalStore()
   left: 0;
   top: 0;
   overflow: scroll;
-  padding: $pad * 4 0;
 
   z-index: 500;
 

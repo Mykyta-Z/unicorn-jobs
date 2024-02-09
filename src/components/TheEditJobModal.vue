@@ -51,9 +51,11 @@ function deleteJob() {
 </script>
 <template>
   <div class="edit-jobs-modal">
-    <BaseButton button-type="round-l" class="modal-close" @click="closeModal">
-      <BaseIcon icon="add" size="m" class="modal-close-icon" />
-    </BaseButton>
+    <div class="modal-close">
+      <BaseButton button-type="round-l" @click="closeModal">
+        <BaseIcon icon="add" size="m" class="modal-close-icon" />
+      </BaseButton>
+    </div>
     <div class="modal-content">
       <div class="modal-content-section">
         <BaseInput
@@ -89,23 +91,34 @@ function deleteJob() {
 <style lang="scss" scoped>
 .edit-jobs-modal {
   position: relative;
-  width: 800px;
   background-color: $color-grey-darker;
-  padding: 126px 107px 80px 93px;
-
-  border-radius: 64px;
-
+  padding: $space * 2 $space;
   display: flex;
   flex-direction: column;
-  gap: 1.4rem;
+  gap: $space * 2;
+  height: 100%;
+
+  @media screen and (min-width: $mq-laptop) {
+    width: 800px;
+    padding: 126px 107px 80px 93px;
+    border-radius: 64px;
+    margin: $pad * 4 0;
+    height: auto;
+    gap: 210px;
+  }
 
   .modal-close {
+    display: none;
     position: absolute;
     transform: translate(-50%, -50%);
     left: 100%;
     top: 0;
     & .modal-close-icon {
       transform: rotate(45deg);
+    }
+
+    @media screen and (min-width: $mq-laptop) {
+      display: block;
     }
   }
 
@@ -123,12 +136,19 @@ function deleteJob() {
   }
 
   .modal-actions {
-    margin-top: 210px;
+    margin-top: auto;
     display: flex;
-    column-gap: $pad;
+    gap: $pad;
+    flex-direction: column;
+
+    @media screen and (min-width: $mq-tablet) {
+      flex-direction: row;
+    }
 
     .modal-action-delete {
-      margin-left: auto;
+      @media screen and (min-width: $mq-tablet) {
+        margin-left: auto;
+      }
     }
   }
 }

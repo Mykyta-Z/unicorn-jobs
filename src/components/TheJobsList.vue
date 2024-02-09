@@ -44,8 +44,12 @@ function addNewJob() {
 <style lang="scss" scoped>
 .jobs-list {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  column-gap: $space * 4;
-  row-gap: $space * 4;
+  grid-template-columns: repeat(auto-fill, minmax(304px, 1fr));
+  gap: $space * 2;
+  justify-content: center;
+
+  @media screen and (min-width: $mq-laptop) {
+    gap: $space * 4;
+  }
 }
 </style>

@@ -22,7 +22,11 @@ import BaseModal from './components/BaseModal.vue'
 .page {
   max-width: 1104px;
   margin: 0 auto;
-  padding: 80px 0;
+  padding: $space;
+
+  @media screen and (min-width: $mq-laptop) {
+    padding: 80px 0;
+  }
 }
 .page-title {
   color: $color-white-base;

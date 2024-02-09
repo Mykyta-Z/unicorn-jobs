@@ -104,12 +104,15 @@ function addNewJob() {
     }
 
     .edit {
-      opacity: 0;
       transition: opacity 0.5s;
       position: absolute;
       right: $pad;
       top: $pad;
       color: rgba($color-black-base, 0.75);
+
+      @media screen and (min-width: $mq-laptop) {
+        opacity: 0;
+      }
     }
   }
 
@@ -119,12 +122,14 @@ function addNewJob() {
     padding: 0 $space;
   }
 
-  &:hover {
-    outline: 1px solid $color-yellow-base;
-    transform: translateY(-$pad * 2);
+  @media (hover: hover) {
+    &:hover {
+      outline: 1px solid $color-yellow-base;
+      transform: translateY(-$pad * 2);
 
-    .content .edit {
-      opacity: 1;
+      .content .edit {
+        opacity: 1;
+      }
     }
   }
 }
