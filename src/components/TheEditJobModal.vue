@@ -3,6 +3,7 @@ import { ref } from 'vue'
 import BaseButton from './BaseButton.vue'
 import BaseIcon from './BaseIcon.vue'
 import BaseInput from './BaseInput.vue'
+import BaseColorPicker from './BaseColorPicker.vue'
 import { useModalStore } from '@/stores/modal'
 import { useJobsStore } from '@/stores/jobs'
 import BaseLink from './BaseLink.vue'
@@ -23,22 +24,22 @@ const jobData = jobsStore.getJobData(props.jobId) || {}
 
 const jobTitle = ref(jobData.title || '')
 const jobIcon = ref(jobData.icon || '')
+const jobIconColor = ref(jobData.iconColor || '#ffffff')
 
 function saveJob() {
   if (!jobTitle.value || !jobIcon.value) {
     return
   }
+  const jobPayload = {
+    title: jobTitle.value,
+    icon: jobIcon.value,
+    iconColor: jobIconColor.value
+  }
 
   if (props.jobId) {
-    jobsStore.updateJob(jobData.id, {
-      title: jobTitle.value,
-      icon: jobIcon.value
-    })
+    jobsStore.updateJob(jobData.id, jobPayload)
   } else {
-    jobsStore.createNewJob({
-      title: jobTitle.value,
-      icon: jobIcon.value
-    })
+    jobsStore.createNewJob(jobPayload)
   }
 
   closeModal()
@@ -76,6 +77,21 @@ function deleteJob() {
             https://fonts.google.com/icons
           </BaseLink>
         </p>
+      </div>
+      <div class="modal-content-section">
+        <div class="section-title">Icon color</div>
+        <BaseColorPicker v-model="jobIconColor" />
+      </div>
+
+      <div class="modal-content-section">
+        <div class="section-title">Icon preview:</div>
+        <BaseIcon
+          :icon="jobIcon"
+          size="l"
+          :style="{
+            color: jobIconColor
+          }"
+        />
       </div>
     </div>
     <div class="modal-actions">
@@ -128,6 +144,12 @@ function deleteJob() {
     row-gap: $space * 2;
 
     .modal-content-section {
+      .section-title {
+        margin-bottom: $pad;
+        font-size: $font-size-medium;
+        font-weight: $font-weight-bold;
+        color: $color-grey-light;
+      }
       .section-description {
         color: $color-grey-lighter;
         margin: $pad 0 0 0;

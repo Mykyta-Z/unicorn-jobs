@@ -7,42 +7,49 @@ export const useJobsStore = defineStore('jobs', {
       {
         id: uuidv4(),
         icon: 'local_pizza',
+        iconColor: '#72ff5b',
         title: 'Police Pizza Delivery Driver 1',
         favorite: true
       },
       {
         id: uuidv4(),
         icon: 'pool',
+        iconColor: '#72ff5b',
         title: 'Police Pizza Delivery Driver 2',
         favorite: false
       },
       {
         id: uuidv4(),
         icon: 'pool',
+        iconColor: '#72ff5b',
         title: 'Police Pizza Delivery Driver 3',
         favorite: false
       },
       {
         id: uuidv4(),
         icon: 'pool',
+        iconColor: '#72ff5b',
         title: 'Police Pizza Delivery Driver 4',
         favorite: true
       },
       {
         id: uuidv4(),
         icon: 'pool',
+        iconColor: '#72ff5b',
         title: 'Police Pizza Delivery Driver 5',
         favorite: true
       },
       {
         id: uuidv4(),
         icon: 'pool',
+        iconColor: '#72ff5b',
         title: 'Police Pizza Delivery Driver 6',
         favorite: true
       },
       {
         id: uuidv4(),
         icon: 'pool',
+        iconColor: '#72ff5b',
         title: 'Police Pizza Delivery Driver 7',
         favorite: true
       }

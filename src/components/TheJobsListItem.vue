@@ -35,7 +35,14 @@ function addNewJob() {
         <BaseIcon class="content-icon" icon="add" size="m" />
       </BaseButton>
       <template v-else>
-        <BaseIcon class="content-icon" :icon="job.icon" size="l" />
+        <BaseIcon
+          class="content-icon"
+          size="l"
+          :icon="job.icon"
+          :style="{
+            color: job.iconColor
+          }"
+        />
         <BaseButton
           class="favorite"
           :class="{
