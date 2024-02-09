@@ -4,6 +4,7 @@ import 'vue3-colorpicker/style.css'
 
 const model = defineModel()
 </script>
+
 <template>
   <color-picker
     class="color-picker"

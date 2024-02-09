@@ -10,6 +10,7 @@ function updateValue(event) {
   emit('update:modelValue', event.target.value)
 }
 </script>
+
 <template>
   <label class="base-input">
     {{ label }}

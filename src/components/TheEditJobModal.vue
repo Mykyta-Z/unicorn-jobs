@@ -1,11 +1,11 @@
 <script setup>
 import { ref } from 'vue'
+import { useModalStore } from '@/stores/modal'
+import { useJobsStore } from '@/stores/jobs'
 import BaseButton from './BaseButton.vue'
 import BaseIcon from './BaseIcon.vue'
 import BaseInput from './BaseInput.vue'
 import BaseColorPicker from './BaseColorPicker.vue'
-import { useModalStore } from '@/stores/modal'
-import { useJobsStore } from '@/stores/jobs'
 import BaseLink from './BaseLink.vue'
 
 const props = defineProps({
@@ -36,6 +36,7 @@ function saveJob() {
     iconColor: jobIconColor.value
   }
 
+  // If no jobId provided -> create new job instance
   if (props.jobId) {
     jobsStore.updateJob(jobData.id, jobPayload)
   } else {
@@ -50,6 +51,7 @@ function deleteJob() {
   closeModal()
 }
 </script>
+
 <template>
   <div class="edit-jobs-modal">
     <div class="modal-close">

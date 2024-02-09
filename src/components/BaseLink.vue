@@ -4,6 +4,7 @@ defineProps({
   target: String
 })
 </script>
+
 <template>
   <a :href="href" :target="target"><slot /></a>
 </template>
