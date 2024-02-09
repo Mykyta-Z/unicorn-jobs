@@ -44,7 +44,7 @@ function addNewJob() {
 <style lang="scss" scoped>
 .jobs-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(304px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax($job-card-width, 1fr));
   gap: $space * 2;
   justify-content: center;
 

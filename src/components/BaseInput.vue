@@ -28,9 +28,9 @@ function updateValue(event) {
 
   input {
     border: none;
-    height: 88px;
+    height: $form-input-height;
     border-radius: $pad;
-    padding: 30px;
+    padding: $form-input-padding;
     font-size: $font-size-medium;
     color: $color-grey-lighter;
     background-color: $color-grey-base;

@@ -24,13 +24,10 @@ const modalStore = useModalStore()
   left: 0;
   top: 0;
   overflow: scroll;
-
   z-index: 500;
-
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.8);
-
+  background: rgba($color-black-base, 0.8);
   display: grid;
   place-items: center;
 }

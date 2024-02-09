@@ -69,9 +69,9 @@ function onButtonClick() {
   &--round-m {
     padding: 0;
     background-color: $color-yellow-base;
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
+    border-radius: $border-radius-square;
+    width: $round-button-m;
+    height: $round-button-m;
 
     &:hover {
       background-color: darken($color-yellow-base, 4%);
@@ -82,9 +82,9 @@ function onButtonClick() {
   &--round-l {
     padding: 0;
     background-color: $color-yellow-base;
-    border-radius: 50%;
-    width: 96px;
-    height: 96px;
+    border-radius: $border-radius-square;
+    width: $round-button-l;
+    height: $round-button-l;
 
     &:hover {
       background-color: darken($color-yellow-base, 4%);

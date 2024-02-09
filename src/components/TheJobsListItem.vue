@@ -67,8 +67,8 @@ function addNewJob() {
 .jobs-list-item {
   background-color: rgba($color-black-base, 0.4);
   padding: $space;
-  border-radius: 56px;
-  min-height: 356px;
+  border-radius: $border-radius-medium;
+  min-height: $job-card-height;
   transition: transform 0.3s;
   user-select: none;
 
@@ -89,7 +89,7 @@ function addNewJob() {
     margin-bottom: $pad;
     background-color: $color-grey-dark;
     border-radius: $space * 2;
-    height: 248px;
+    height: $job-cart-content-height;
     display: flex;
     align-items: center;
     justify-content: center;

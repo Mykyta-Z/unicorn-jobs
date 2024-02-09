@@ -115,9 +115,9 @@ function deleteJob() {
   height: 100%;
 
   @media screen and (min-width: $mq-laptop) {
-    width: 800px;
+    width: $modal-width-laptop;
     padding: 126px 107px 80px 93px;
-    border-radius: 64px;
+    border-radius: $border-radius-large;
     margin: $pad * 4 0;
     height: auto;
     gap: 210px;

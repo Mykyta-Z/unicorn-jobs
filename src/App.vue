@@ -20,18 +20,18 @@ import BaseModal from './components/BaseModal.vue'
 @import '@/assets/scss/main.scss';
 
 .page {
-  max-width: 1104px;
+  max-width: $page-width-laptop;
   margin: 0 auto;
   padding: $space;
 
   @media screen and (min-width: $mq-laptop) {
-    padding: 80px 0;
+    padding: $header-height 0;
   }
 }
 .page-title {
   color: $color-white-base;
   font-size: $font-size-large;
   font-weight: $font-weight-normal;
-  margin: 0 0 105px 0;
+  margin: 0 0 $page-title-margin 0;
 }
 </style>

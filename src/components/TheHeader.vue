@@ -17,7 +17,7 @@ const jobStore = useJobsStore()
 
 <style lang="scss" scoped>
 .header {
-  height: 80px;
+  height: $header-height;
   display: flex;
   justify-content: space-between;
   align-items: center;
