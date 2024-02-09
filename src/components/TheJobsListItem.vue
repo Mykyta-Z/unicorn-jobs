@@ -3,10 +3,11 @@ import BaseButton from './BaseButton.vue'
 import BaseIcon from './BaseIcon.vue'
 
 defineProps({
-  job: Object
+  job: Object,
+  addNew: Boolean
 })
 
-const emit = defineEmits(['toggleFavorite', 'edit'])
+const emit = defineEmits(['toggleFavorite', 'edit', 'addNew'])
 
 function favoritelick() {
   emit('toggleFavorite')
@@ -15,27 +16,42 @@ function favoritelick() {
 function editClick() {
   emit('edit')
 }
+
+function addNewJob() {
+  emit('addNew')
+}
 </script>
 
 <template>
-  <div class="jobs-list-item">
+  <div
+    class="jobs-list-item"
+    :class="{
+      'jobs-list-item--addNew': addNew
+    }"
+    @click="addNewJob"
+  >
     <div class="content">
-      <BaseIcon class="content-icon" :icon="job.icon" size="l" />
-      <BaseButton
-        class="favorite"
-        :class="{
-          'favorite--added': job.favorite
-        }"
-        @click="favoritelick"
-      >
-        <BaseIcon :icon="job.favorite ? 'favorite' : 'favorite_border'" />
+      <BaseButton v-if="addNew" button-type="round-l">
+        <BaseIcon class="content-icon" icon="add" size="m" />
       </BaseButton>
-      <BaseButton class="edit" button-type="round-m" @click="editClick">
-        <BaseIcon icon="edit" />
-      </BaseButton>
+      <template v-else>
+        <BaseIcon class="content-icon" :icon="job.icon" size="l" />
+        <BaseButton
+          class="favorite"
+          :class="{
+            'favorite--added': job.favorite
+          }"
+          @click="favoritelick"
+        >
+          <BaseIcon :icon="job.favorite ? 'favorite' : 'favorite_border'" />
+        </BaseButton>
+        <BaseButton class="edit" button-type="round-m" @click="editClick">
+          <BaseIcon icon="edit" />
+        </BaseButton>
+      </template>
     </div>
     <div class="title">
-      {{ job.title }}
+      {{ addNew ? 'Add new Unicorn' : job.title }}
     </div>
   </div>
 </template>
@@ -48,6 +64,19 @@ function editClick() {
   min-height: 356px;
   transition: transform 0.3s;
   user-select: none;
+
+  &.jobs-list-item--addNew {
+    cursor: pointer;
+    .content {
+      background-color: unset;
+      .content-icon {
+        color: black;
+      }
+    }
+    .title {
+      text-align: center;
+    }
+  }
 
   .content {
     margin-bottom: $pad;

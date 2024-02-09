@@ -20,6 +20,12 @@ function editJob(jobId) {
     }
   })
 }
+
+function addNewJob() {
+  modalStore.openModal({
+    component: TheEditJobModal
+  })
+}
 </script>
 
 <template>
@@ -31,6 +37,7 @@ function editJob(jobId) {
       @toggleFavorite="updateFavorite(job.id)"
       @edit="editJob(job.id)"
     />
+    <TheJobsListItem addNew @addNew="addNewJob" />
   </div>
 </template>
 

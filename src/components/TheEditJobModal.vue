@@ -19,7 +19,7 @@ function closeModal() {
 
 const jobsStore = useJobsStore()
 
-const jobData = jobsStore.getJobData(props.jobId)
+const jobData = jobsStore.getJobData(props.jobId) || {}
 
 const jobTitle = ref(jobData.title || '')
 const jobIcon = ref(jobData.icon || '')
@@ -29,16 +29,23 @@ function saveJob() {
     return
   }
 
-  jobsStore.updateJob(jobData.id, {
-    title: jobTitle.value,
-    icon: jobIcon.value
-  })
+  if (props.jobId) {
+    jobsStore.updateJob(jobData.id, {
+      title: jobTitle.value,
+      icon: jobIcon.value
+    })
+  } else {
+    jobsStore.createNewJob({
+      title: jobTitle.value,
+      icon: jobIcon.value
+    })
+  }
 
   closeModal()
 }
 
 function deleteJob() {
-  jobsStore.deleteJob(props.jobData.id)
+  jobsStore.deleteJob(jobData.id)
   closeModal()
 }
 </script>
@@ -72,7 +79,7 @@ function deleteJob() {
     <div class="modal-actions">
       <BaseButton button-type="primary" @click="saveJob">Save</BaseButton>
       <BaseButton button-type="secondary" @click="closeModal">Cancel</BaseButton>
-      <BaseButton class="modal-action-delete" button-type="error" @click="deleteJob">
+      <BaseButton v-if="jobId" class="modal-action-delete" button-type="error" @click="deleteJob">
         Delete
       </BaseButton>
     </div>

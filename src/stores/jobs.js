@@ -49,9 +49,16 @@ export const useJobsStore = defineStore('jobs', {
     ]
   }),
   actions: {
+    createNewJob(payload) {
+      const job = {
+        id: uuidv4(),
+        favorite: false,
+        ...payload
+      }
+      this.list.push(job)
+    },
     updateFavoriteJob(jobId) {
       const job = this.list.find((job) => job.id === jobId)
-      console.log(job)
       this.updateJob(jobId, {
         favorite: !job.favorite
       })
