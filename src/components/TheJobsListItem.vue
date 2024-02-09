@@ -2,7 +2,7 @@
 import BaseButton from './BaseButton.vue'
 import BaseIcon from './BaseIcon.vue'
 
-const { job } = defineProps({
+defineProps({
   job: Object
 })
 
@@ -20,7 +20,7 @@ function editClick() {
 <template>
   <div class="jobs-list-item">
     <div class="content">
-      <BaseIcon class="content-icon" :icon="job.icon.type" size="l" />
+      <BaseIcon class="content-icon" :icon="job.icon" size="l" />
       <BaseButton
         class="favorite"
         :class="{

@@ -1,26 +1,35 @@
 <script setup>
 import { useJobsStore } from '@/stores/jobs'
+import { useModalStore } from '@/stores/modal'
 import TheJobsListItem from './TheJobsListItem.vue'
+import TheEditJobModal from './TheEditJobModal.vue'
 
-const jobs = useJobsStore()
+const jobsStore = useJobsStore()
 
 function updateFavorite(jobId) {
-  jobs.updateFavoriteJob(jobId)
+  jobsStore.updateFavoriteJob(jobId)
 }
 
-function editJob() {
-    // TODO: Open modal
+const modalStore = useModalStore()
+
+function editJob(jobId) {
+  modalStore.openModal({
+    component: TheEditJobModal,
+    props: {
+      jobId
+    }
+  })
 }
 </script>
 
 <template>
   <div class="jobs-list">
     <TheJobsListItem
-      v-for="job in jobs.list"
+      v-for="job in jobsStore.list"
       :key="job.title"
       :job="job"
-      @toggleFavorite="updateFavorite"
-      @edit="editJob"
+      @toggleFavorite="updateFavorite(job.id)"
+      @edit="editJob(job.id)"
     />
   </div>
 </template>

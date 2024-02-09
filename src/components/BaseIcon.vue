@@ -1,5 +1,5 @@
 <script setup>
-const props = defineProps({
+defineProps({
   icon: {
     type: String,
     required: true
@@ -17,7 +17,7 @@ const props = defineProps({
 
 <template>
   <span class="material-icons" :class="[`size-${size}`]">
-    {{ props.icon }}
+    {{ icon }}
   </span>
 </template>
 
