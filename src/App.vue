@@ -1,6 +1,7 @@
 <script setup>
 import TheHeader from './components/TheHeader.vue'
 import TheJobsList from './components/TheJobsList.vue'
+import BaseModal from './components/BaseModal.vue'
 </script>
 
 <template>
@@ -11,6 +12,7 @@ import TheJobsList from './components/TheJobsList.vue'
       one.
     </h1>
     <TheJobsList />
+    <BaseModal />
   </main>
 </template>
 
